@@ -28,6 +28,7 @@
 
 	<!-- Modernizer js -->
 	<script src="js/vendor/modernizr-3.5.0.min.js"></script>
+	
 </head>
 
 <body>
@@ -593,15 +594,27 @@
 
 					<div class="row section-padding-top-lg">
 						<div class="col-12">
+							<script>
+
+								function validateForm() {
+										var x = document.forms["myForm"]["femail"].value;
+										if (x == "") {
+										  alert("Name must be filled out");
+										  return false;
+										}
+									  }
+								</script>
 							<h5 class="small-title">Drop Me A Line</h5>
-							<form class="contact-form mt-5" id="contact-form" action="/Submit" method="POST">
+							<form name="myform" class="contact-form mt-5" id="contact-form" onSubmit="return validateForm()" action="mail.php" method="post">
 								<textarea name="message" cols="30" rows="8" placeholder="Your Message"></textarea>
-								<input name="name" type="text" placeholder="Name*">
+								<input name="fname" type="text" placeholder="Name*">
 								<input name="email" type="email" placeholder="Email*">
 								<input name="phone" type="text" placeholder="Phone*">
 								<input type="submit" value="Submit">
 							</form>
 							<p class="form-messege"></p>
+							
+						
 						</div>
 					</div>
 
